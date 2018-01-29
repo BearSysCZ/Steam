@@ -1,0 +1,32 @@
+{
+    "name": "bearsys/steam",
+    "description": "Package combining several Steam-related libraries into one wrapped and easy-to-use package.",
+    "type": "library",
+    "keywords": ["steam", "nette"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marek Frydrych",
+            "email": "frydrych.marek@post.cz"
+        }
+    ],
+    "require": {
+        "ehesp/steam-login": "^1.1",
+        "xpaw/steamid": "^1.0",
+        "zyberspace/steam-web-api-client": "^0.5.0"
+    },
+    "require-dev": {
+        "nette/application": "^2.4",
+        "nette/di": "^2.4",
+        "nette/tester": "^2.0"
+    },
+    "suggest": {
+        "nette/application": "Required for Nette framework login component. You should already have this if you want to use the login component.",
+        "nette/di": "Required for Nette framework extension. You should already have this if you want to use the extension."
+    },
+    "autoload": {
+        "psr-4": {
+            "BearSys\\Steam\\": "src/"
+        }
+    }
+}
