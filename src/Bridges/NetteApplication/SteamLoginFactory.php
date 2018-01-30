@@ -5,12 +5,11 @@ namespace BearSys\Steam\Bridges\NetteApplication;
 class SteamLoginFactory
 {
 	/**
-	 * @param callable $success
-	 * @param callable $error
+	 * @param callable $callback
 	 * @return SteamLogin
 	 */
-	public function setup(callable $success, callable $error)
+	public function setup(callable $callback)
 	{
-		return new SteamLogin($success, $error);
+		return new SteamLogin($callback);
 	}
 }

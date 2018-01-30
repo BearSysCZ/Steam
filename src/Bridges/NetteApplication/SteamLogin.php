@@ -7,22 +7,17 @@ use Nette\Application\UI\Component;
 class SteamLogin extends Component
 {
 	/** @var callable */
-	private $success;
-
-	/** @var callable */
-	private $error;
+	private $callback;
 
 
 	/**
 	 * SteamLogin constructor.
-	 * @param callable $success function (string $steamId)
-	 * @param callable $error function (Exception $e)
+	 * @param callable $callback function (string $steamId)
 	 */
-	public function __construct(callable $success, callable $error)
+	public function __construct(callable $callback)
 	{
 		parent::__construct();
-		$this->success = $success;
-		$this->error = $error;
+		$this->callback = $callback;
 	}
 
 
@@ -36,12 +31,7 @@ class SteamLogin extends Component
 	public function handleSteamLoginReturn()
 	{
 		$login = new \Ehesp\SteamLogin\SteamLogin;
-		try {
-			$successCallback = $this->success;
-			$successCallback($login->validate());
-		} catch (\Exception $e) {
-			$errorCallback = $this->error;
-			$errorCallback($e);
-		}
+		$callback = $this->callback;
+		$callback($login);
 	}
 }
