@@ -24,7 +24,8 @@ class SteamLogin extends Component
 	public function handleSteamLogin()
 	{
 		$login = new \Ehesp\SteamLogin\SteamLogin;
-		$login->url($this->link('steamLoginReturn!'));
+		$url = $login->url($this->link('//steamLoginReturn!'));
+		$this->getPresenter()->redirectUrl($url);
 	}
 
 

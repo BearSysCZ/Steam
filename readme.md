@@ -105,7 +105,10 @@ class SteamAuthenticator extends AbstractAuthenticator
 	}
 }
 ```
-
+At last, create link to component handle and style it however you want.
+```latte
+<a href="{link steamLogin-steamLogin!}">Steam login</a>
+```
 
 ## Future plans
 
