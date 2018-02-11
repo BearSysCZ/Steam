@@ -38,7 +38,6 @@ class SteamServers
 			if (method_exists($queryBuilder, $method))
 				$queryBuilder->$method($value);
 		}
-		print_r($queryBuilder->getQuery());
 		$servers = $master->getServers($region, $queryBuilder->getQuery());
 
 		return $servers;
